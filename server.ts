@@ -1,7 +1,7 @@
 import express from 'express';
 import http from 'http';
 import { Server as SocketIOServer, Socket } from 'socket.io';
-const cors = require('cors');
+import cors from 'cors';
 
 // Setting Up the server
 const app = express();
@@ -13,7 +13,7 @@ const io = new SocketIOServer(server, {
     methods: ['GET', 'POST']
   }
 });
-
+ 
 io.on('connection', (socket: Socket) => {      //Listens for incoming socket connections.
   console.log('Client connected:', socket.id);
 
